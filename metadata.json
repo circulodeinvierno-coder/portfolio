@@ -1,0 +1,6 @@
+{
+  "name": "Circulo Invierno — Portafolio Artístico & Editorial",
+  "description": "Portafolio de Circulo Invierno: ilustraciones, fanzines y experimentos de autoedición.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

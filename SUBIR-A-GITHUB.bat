@@ -1,0 +1,41 @@
+@echo off
+setlocal
+cd /d "%~dp0"
+title Subir Circulo Invierno a GitHub
+
+echo.
+echo Pega la direccion del repositorio de GitHub.
+echo Ejemplo: https://github.com/tu-usuario/circuloinvierno-web.git
+echo.
+set /p REPO=Repositorio: 
+
+if "%REPO%"=="" goto vacio
+
+git remote remove origin >nul 2>nul
+git remote add origin "%REPO%"
+git branch -M main
+
+echo.
+echo Subiendo... Si GitHub pide iniciar sesion, hazlo en la ventana que se abra.
+echo.
+git push -u origin main
+if errorlevel 1 goto error
+
+echo.
+echo Listo: el proyecto ya esta en GitHub.
+echo Ahora puedes importarlo en Vercel y conectar el dominio circuloinvierno.com.
+echo.
+pause
+exit /b 0
+
+:vacio
+echo.
+echo No escribiste ninguna direccion.
+pause
+exit /b 1
+
+:error
+echo.
+echo No se pudo subir. Revisa que el repositorio exista y que hayas iniciado sesion.
+pause
+exit /b 1
